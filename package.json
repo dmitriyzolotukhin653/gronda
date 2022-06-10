@@ -13,8 +13,10 @@
     "@reduxjs/toolkit": "^1.8.2",
     "react": "17.0.2",
     "react-native": "0.68.2",
+    "react-native-image-slider-box": "^1.1.24",
     "react-native-navigation": "^7.28.0",
-    "react-redux": "^8.0.2"
+    "react-redux": "^8.0.2",
+    "reselect": "^4.1.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

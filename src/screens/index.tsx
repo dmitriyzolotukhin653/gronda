@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 
 import { StoreType } from "../../shared/redux";
 import { SCREENS } from "./const";
-import App from "../App";
+import HomeScreen from "./Home";
 
 const registerComponentWithRedux =
   (store: StoreType) =>
@@ -23,5 +23,5 @@ const registerComponentWithRedux =
 
 export function registerScreens(store: StoreType) {
   const registerWithRedux = registerComponentWithRedux(store);
-  registerWithRedux(SCREENS.Home, App);
+  registerWithRedux(SCREENS.Home, HomeScreen);
 }
