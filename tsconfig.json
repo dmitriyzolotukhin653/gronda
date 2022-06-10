@@ -6,11 +6,12 @@
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
+    "resolveJsonModule": true,
     "strictFunctionTypes": true,
     "noImplicitThis": true,
     // "typeRoots": [],                       /* List of folders to include type definitions from. */
     // "types": [],                           /* Type declaration files to be included in compilation. */
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
   "exclude": [
