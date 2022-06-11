@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
+
 import { screenWidth } from "../../../utils/dimesions";
 
 export const styles = StyleSheet.create({
@@ -6,8 +7,8 @@ export const styles = StyleSheet.create({
     marginTop: 16,
     fontSize: 19,
     fontWeight: "bold",
-    fontFamily: "TT Commons",
     color: "#000",
+    ...(Platform.OS === "android" && { fontFamily: "TT Commons" }),
   },
   creationsList: {
     marginTop: 16,

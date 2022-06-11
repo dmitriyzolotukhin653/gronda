@@ -7,3 +7,6 @@ export const creationsLoadingSelector = (state: RootState) =>
 
 export const creationsErrorSelector = (state: RootState) =>
   state.creations.error;
+
+export const creationsVisitsDictSelector = (state: RootState) =>
+  state.creations.visitsDictionary;

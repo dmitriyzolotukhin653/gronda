@@ -7,9 +7,13 @@ import { styles } from "./styles";
 
 export type CreationsListProps = {
   creationsList: Array<ICreation>;
+  onPress?: (id: number) => void;
 };
 
-const CreationsList: React.FC<CreationsListProps> = ({ creationsList }) => {
+const CreationsList: React.FC<CreationsListProps> = ({
+  creationsList,
+  onPress,
+}) => {
   return (
     <>
       <Text style={styles.creationsListHeader}>Creation for you</Text>
@@ -18,8 +22,8 @@ const CreationsList: React.FC<CreationsListProps> = ({ creationsList }) => {
           <View style={[styles.creationListCard]} key={creation.id}>
             <CreationCard
               cardWidth={0.44}
-              title={creation.title}
-              imageURL={creation.img_url}
+              creation={creation}
+              onPress={onPress}
             />
           </View>
         ))}

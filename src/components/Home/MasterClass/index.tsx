@@ -19,7 +19,7 @@ const MasterClass: React.FC<MasterClassProps> = ({
   return (
     <ImageBackground
       style={[styles.masterClassBanner, imageBackgroundStyles]}
-      resizeMode={"contain"}
+      resizeMode={"cover"}
       imageStyle={styles.masterClassBanner}
       source={{
         uri: imageUrl,

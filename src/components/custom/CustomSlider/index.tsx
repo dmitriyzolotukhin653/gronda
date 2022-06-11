@@ -38,6 +38,7 @@ const CustomSlider = <T,>({
         pagingEnabled={true}
         showsHorizontalScrollIndicator={false}
         snapToInterval={snapToInterval}
+        scrollEventThrottle={16}
         onScroll={handleSliderScroll}
       >
         {items.map((item, index) => (

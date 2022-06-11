@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   cardContainer: {
@@ -12,8 +12,8 @@ export const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: "bold",
     color: "#000",
-    fontFamily: "TT Commons",
     lineHeight: 20,
     marginTop: 12,
+    ...(Platform.OS === "android" && { fontFamily: "TT Commons" }),
   },
 });

@@ -3,8 +3,8 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   masterClassBanner: {
     width: "100%",
-    height: "auto",
     borderRadius: 10,
+    overflow: "hidden",
     flex: 1,
   },
   text: {

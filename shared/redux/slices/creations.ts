@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { ICreation } from "../../api/types";
 import { getCreations } from "../../api";
@@ -7,30 +7,33 @@ interface CreationsState {
   list: Array<ICreation>;
   loading: boolean;
   error: string | null;
+  visitsDictionary: Record<string, number>;
 }
 
 const initialState: CreationsState = {
   list: [],
   loading: false,
   error: null,
+  visitsDictionary: {},
 };
 
 export const getCreationsList = createAsyncThunk<Array<ICreation>>(
   "creations/getCreationsList",
-  async () => {
-    // eslint-disable-next-line no-useless-catch
-    try {
-      return await getCreations();
-    } catch (error) {
-      throw error;
-    }
-  }
+  () => getCreations()
 );
 
 const creationsSlice = createSlice({
   name: "creations",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    addVisitToDictionary: (state, action: PayloadAction<{ id: number }>) => {
+      if (action.payload.id in state.visitsDictionary) {
+        state.visitsDictionary[action.payload.id] += 1;
+      } else {
+        state.visitsDictionary[action.payload.id] = 1;
+      }
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getCreationsList.pending, (state) => {
       state.list = [];
@@ -47,5 +50,7 @@ const creationsSlice = createSlice({
     });
   },
 });
+
+export const { addVisitToDictionary } = creationsSlice.actions;
 
 export const creationsReducer = creationsSlice.reducer;
